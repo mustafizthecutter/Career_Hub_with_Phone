@@ -5,7 +5,9 @@ import Products from "../pages/Products";
 import Dashboard from "../pages/Dashboard";
 import ErrorPage from "../Components/ErrorPage";
 import Product from "../pages/Product";
-
+import DashBoardLayOut from "../pages/DashBoardLayOut";
+import Profile from "../pages/Profile";
+import EditProfile from "../pages/EditProfile";
 
 const route = createBrowserRouter([
     {
@@ -28,7 +30,21 @@ const route = createBrowserRouter([
             },
             {
                 path: '/dashboard',
-                element: <Dashboard></Dashboard>
+                element: <DashBoardLayOut></DashBoardLayOut>,
+                children: [
+                    {
+                        path: '/dashboard',
+                        element: <Dashboard></Dashboard>
+                    },
+                    {
+                        path: '/dashboard/profile',
+                        element: <Profile></Profile>
+                    },
+                    {
+                        path: '/dashboard/editProfile',
+                        element: <EditProfile></EditProfile>
+                    },
+                ]
             },
         ]
 
